@@ -1,0 +1,49 @@
+.factories, .shops, .selection .items {
+    font-size: .8em;
+    margin: 0 0 1em;
+    .badge {
+        font-size: 1em;
+    }
+}
+
+.factory, .shop, .item {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    margin: 0 .5em .5em 0;
+}
+
+.factories {
+    .factory {
+        // height: 5em;
+        width: 15em;
+        background: #cbecff;
+        &.overload {
+            background: #e43;
+        }
+    }
+}
+
+.shops {
+    .shop {
+        height: 9em;
+        min-width: 15em;
+        background: #ffce84;
+        &.overload {
+            background: #e43;
+            color: white;
+        }
+    }
+}
+
+.selection {
+
+    .item {
+        min-width: 12em;
+        background: #e3f594;
+        button, a {
+            margin: 0 .5em .5em 0;
+        }
+    }
+}
