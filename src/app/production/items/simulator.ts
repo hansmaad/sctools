@@ -110,8 +110,7 @@ export class Simulator {
 
     updateSelection(itemName: string, amountPerTime: number) {
         const selection = this.sales.find(s => s.name === itemName);
-
-        selection.amountPerTime = Math.min(amountPerTime, selection.maxAmountPerTime);
+        selection.amountPerTime = Math.max(amountPerTime, 0);
         selection.needs = needs(itemName, amountPerTime);
         selection.valuePerTime = selection.item.value * amountPerTime,
         this.update();

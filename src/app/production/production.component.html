@@ -9,9 +9,9 @@
 
   <div class="selection">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 d-flex flex-column">
         <h2>Production</h2>
-        <div class="items">
+        <div class="items flex-grow-1">
           <div class="item" *ngFor="let item of simulator.sales">
             <button class="btn btn-sm btn-outline-secondary" type="button" (click)="more(item)">MORE</button>
             <button class="btn btn-sm btn-outline-secondary" type="button" (click)="less(item)">LESS</button>
@@ -24,25 +24,6 @@
             <div *ngFor="let n of item.needs">{{amountPerHour(n.amountPerTime)}} {{n.item}}</div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <h2>Purchases</h2>
-        <div class="items">
-          <div class="item" *ngFor="let item of simulator.purchase">
-            <button class="btn btn-sm btn-outline-secondary" type="button" (click)="buyMore(item)">MORE</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button" (click)="buyLess(item)">LESS</button>
-            <button class="btn btn-sm btn-outline-danger" type="button"
-              (click)="simulator.removePurchase(item.name)">DELETE</button>
-            <div>
-              <strong>{{amountPerHour(item.amountPerTime)}} {{item.name}}</strong>
-              <span class="ml-1 badge badge-danger">{{amountPerHour(item.valuePerTime)}} $</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
         <div class="form-group">
           <label>Sell item</label>
           <div class="input-group">
@@ -55,7 +36,20 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 d-flex flex-column">
+        <h2>Purchases</h2>
+        <div class="items flex-grow-1">
+          <div class="item" *ngFor="let item of simulator.purchase">
+            <button class="btn btn-sm btn-outline-secondary" type="button" (click)="buyMore(item)">MORE</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" (click)="buyLess(item)">LESS</button>
+            <button class="btn btn-sm btn-outline-danger" type="button"
+              (click)="simulator.removePurchase(item.name)">DELETE</button>
+            <div>
+              <strong>{{amountPerHour(item.amountPerTime)}} {{item.name}}</strong>
+              <span class="ml-1 badge badge-danger">{{amountPerHour(item.valuePerTime)}} $</span>
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <label>Buy item</label>
           <div class="input-group">
@@ -70,6 +64,7 @@
       </div>
     </div>
   </div>
+
   <div class="factories">
     <div class="factory">
       {{simulator.numberOfFactories}} Factories (<strong>{{renderNumber(simulator.factories.workload * 100)}}
